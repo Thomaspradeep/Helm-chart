@@ -1,0 +1,41 @@
+service:
+  name: redis
+  identifier: redis
+  tags: {}
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: redis
+            type: HelmChart
+            spec:
+              store:
+                type: Http
+                spec:
+                  connectorRef: org.bitnami
+              chartName: redis
+              chartVersion: ""
+              subChartName: ""
+              helmVersion: V3
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+        - manifest:
+            identifier: Redis Values
+            type: Values
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: account.Rohan_Github
+                  gitFetchType: Branch
+                  paths:
+                    - redis/values.yaml
+                  repoName: Product-Management
+                  branch: main
+      variables:
+        - name: namespace
+          type: String
+          description: "namespace for the redis service"
+          value: redis
+    type: Kubernetes
+  description: sample redis service
