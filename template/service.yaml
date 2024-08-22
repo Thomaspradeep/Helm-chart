@@ -1,41 +1,15 @@
-service:
-  name: redis
-  identifier: redis
-  tags: {}
-  serviceDefinition:
-    spec:
-      manifests:
-        - manifest:
-            identifier: redis
-            type: HelmChart
-            spec:
-              store:
-                type: Http
-                spec:
-                  connectorRef: org.bitnami
-              chartName: redis
-              chartVersion: ""
-              subChartName: ""
-              helmVersion: V3
-              skipResourceVersioning: false
-              enableDeclarativeRollback: false
-        - manifest:
-            identifier: Redis Values
-            type: Values
-            spec:
-              store:
-                type: Github
-                spec:
-                  connectorRef: account.Rohan_Github
-                  gitFetchType: Branch
-                  paths:
-                    - redis/values.yaml
-                  repoName: Product-Management
-                  branch: main
-      variables:
-        - name: namespace
-          type: String
-          description: "namespace for the redis service"
-          value: redis
-    type: Kubernetes
-  description: sample redis service
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helloworld.fullname" . }}
+  labels:
+    {{- include "helloworld.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "helloworld.selectorLabels" . | nindent 4 }}
