@@ -1,0 +1,9 @@
+{
+  "aws_account": "650251688303",
+  "asset_id": "11223344",
+  "cluster": {
+    "owner": "kavinsundaram10@gmail.com",
+    "name": "pradeep.k8s.local",
+    "address": "http://54.211.38.120"
+  }
+}
