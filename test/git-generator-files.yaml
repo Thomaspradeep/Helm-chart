@@ -8,7 +8,7 @@ spec:
         repoURL: https://github.com/thomaspradeep/helm-chart.git  
         revision: HEAD  
         files:  
-        - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"  
+        - path: "./conf/config.json"  
   template:  
     metadata:  
       name: '{{cluster.name}}-guestbook'
