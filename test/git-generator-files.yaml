@@ -21,9 +21,9 @@ spec:
       source:  
         repoURL: https://github.com/thomaspradeep/helm-chart.git  
         targetRevision: HEAD  
-        path: "examples/git-generator-files-discovery/apps/guestbook"  
+        path: "test/conf/config.json"  
       destination:  
         server: '{{cluster.address}}'  
-        namespace: default  
+        namespace: agro
       syncPolicy:  
         automated: {}
