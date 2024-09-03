@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1  
+kind: ApplicationSet  
+metadata:  
+  name: guestbook  
+spec:  
+  generators:  
+    - git:  
+        repoURL: https://github.com/thomaspradeep/helm-chart.git  
+        revision: HEAD  
+        files:  
+        - path: "test/conf/config.json"  
+  template:  
+    metadata:  
+      name: '{{cluster.name}}-guestbook'
+      labels: 
+        harness.io/envRef: '{{envTag}}'
+        harness.io/serviceRef: '{{serviceTag}}'
+        harness.io/buildRef: '{{releaseTag}}'
+    spec:  
+      project: 6e47a697 
+      source:  
+        repoURL: https://github.com/thomaspradeep/helm-chart.git  
+        targetRevision: HEAD  
+        path: "test/conf/config.json"  
+      destination:  
+        server: '{{cluster.address}}'  
+        namespace: agro
+      syncPolicy:  
+        automated: {}
