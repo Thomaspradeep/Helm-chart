@@ -5,7 +5,7 @@ metadata:
 spec:  
   generators:  
     - git:  
-        repoURL: https://github.com/<YOUR_ACCOUNT_NAME>/applicationset.git  
+        repoURL: https://github.com/thomaspradeep/helm-chart.git  
         revision: HEAD  
         files:  
         - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"  
@@ -17,9 +17,9 @@ spec:
         harness.io/serviceRef: '{{serviceTag}}'
         harness.io/buildRef: '{{releaseTag}}'
     spec:  
-      project: <PROJECT_ID_IN_AGENT_PAGE>  
+      project: 6e47a697 
       source:  
-        repoURL: https://github.com/<your account name>/applicationset.git  
+        repoURL: https://github.com/thomaspradeep/helm-chart.git  
         targetRevision: HEAD  
         path: "examples/git-generator-files-discovery/apps/guestbook"  
       destination:  
