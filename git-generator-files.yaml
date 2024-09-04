@@ -13,7 +13,7 @@ spec:
     metadata:
       name: '{{cluster.name}}-guestbook'
     spec:
-      project: default
+      project: 6e47a697
       source:
         repoURL: https://github.com/thomaspradeep/helm-chart.git
         targetRevision: HEAD
