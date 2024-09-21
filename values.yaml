@@ -8,7 +8,7 @@ image:
   repository: thomaspradeep/k8
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: null
+  tag: v2
 
 imagePullSecrets: []
  # - name: myregistrykey
